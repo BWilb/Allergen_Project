@@ -1,6 +1,5 @@
-const puppeteer = require("puppeteer")
-const browser = await puppeteer.launch();
-const page = await browser.newPage();
+const puppeteer = require("puppeteer");
+//module for webscraping
 class Object{
     constructor(url, property, xfactor) {
         this.url = url
@@ -13,19 +12,25 @@ class Object{
 
     async retrieve_url(){
         //retrieves url
-        await page.goto(this.url);
-        await this.retrieve_html_object();
-    }
-    
-    async retrieve_html_object(){
+        const browser = await puppeteer.launch();
+        // creation of browser variable
+        const page = await browser.newPage();
+        // page variable
+        await page.goto(this.url)
+        // page retrieves specific url
+
         const [el] =  await page.$x(this.xfactor);
+        // page retrieves xfactor
         const text = await el.getProperty(this.property);
+        // page retrieves property
         const object = text.jsonValue();
-        
+
         console.log({object});
         browser.close();
     }
 }
-
-objectOne = Object("https://www.amazon.com/Black-Swan-Improbable-Robustness-Fragility/dp/081297381X/ref=sr_1_1?crid=1EY74PIRY87SI&keywords=The+black+swan&qid=1665081664&qu=eyJxc2MiOiIyLjQ3IiwicXNhIjoiMS43NCIsInFzcCI6IjIuMjMifQ%3D%3D&sprefix=the+black+swan%2Caps%2C420&sr=8-1", 'textContent', '//*[@id="corePrice_feature_div"]/div/span/span[2]')
+objectOne = new Object("https://www.amazon.com/Black-Swan-Improbable-Robustness-Fragility/dp/081297381X/ref=sr_1_1?crid=1EY74PIRY87SI&keywords=The+black+swan&qid=1665081664&qu=eyJxc2MiOiIyLjQ3IiwicXNhIjoiMS43NCIsInFzcCI6IjIuMjMifQ%3D%3D&sprefix=the+black+swan%2Caps%2C420&sr=8-1",
+'textContent',
+'//*[@id="productTitle"]/text()');
 objectOne.retrieve_url();
+console.log("hi")
