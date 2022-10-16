@@ -28,9 +28,46 @@ class Object{
         console.log({object});
         browser.close();
     }
+    async retrieve_two(){
+        const browser = await puppeteer.launch();
+        // creation of browser variable
+        const page = await browser.newPage();
+        // page variable
+        await page.goto(this.url)
+        // page retrieves specific url
+
+        const [el] =  await page.$x(this.xfactor);
+        // page retrieves xfactor
+        const text = await el.getProperty(this.property);
+        // page retrieves property
+        const object = text.jsonValue();
+        console.log(object)
+        browser.close();
+    }
 }
-objectOne = new Object("https://www.amazon.com/Black-Swan-Improbable-Robustness-Fragility/dp/081297381X/ref=sr_1_1?crid=1EY74PIRY87SI&keywords=The+black+swan&qid=1665081664&qu=eyJxc2MiOiIyLjQ3IiwicXNhIjoiMS43NCIsInFzcCI6IjIuMjMifQ%3D%3D&sprefix=the+black+swan%2Caps%2C420&sr=8-1",
-'textContent',
-'//*[@id="productTitle"]/text()');
-objectOne.retrieve_url();
-console.log("hi")
+
+function retreive(){
+    objectOne = new Object("https://simpsondining.sodexomyway.com/dining-near-me/pfieffer-dining-hall",
+        'textContent',
+        '/html/body/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/h1');
+    // first object
+    objectOne.retrieve_url();
+
+    objectTwo = new Object("https://simpsondining.sodexomyway.com/dining-near-me/pfieffer-dining-hall",
+        'src',
+        '/html/body/div[1]/div/div[2]/div[1]/div/img');
+    // second object
+    objectTwo.retrieve_url();
+
+    objectThree = new Object("https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall",
+        'placeholder',
+        /*
+        comeback to this specific property
+         */
+         '//*[@id="dateMenu"]');
+    // third object
+    objectThree.retrieve_two();
+
+
+}
+retreive();
