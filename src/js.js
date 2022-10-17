@@ -9,25 +9,24 @@ class Object{
         this.xfactor = xfactor
         // variable for xfactor of html object
     }
-
     async retrieve_url(){
-        //retrieves url
-        const browser = await puppeteer.launch();
-        // creation of browser variable
-        const page = await browser.newPage();
-        // page variable
-        await page.goto(this.url)
-        // page retrieves specific url
+            //retrieves url
+            const browser = await puppeteer.launch();
+            // creation of browser variable
+            const page = await browser.newPage();
+            // page variable
+            await page.goto(this.url)
+            // page retrieves specific url
 
-        const [el] =  await page.$x(this.xfactor);
-        // page retrieves xfactor
-        const text = await el.getProperty(this.property);
-        // page retrieves property
-        const object = text.jsonValue();
+            const [el] =  await page.$x(this.xfactor);
+            // page retrieves xfactor
+            const text = await el.getProperty(this.property);
+            // page retrieves property
+            const object = text.jsonValue();
 
-        console.log({object});
-        browser.close();
-    }
+            console.log({object});
+            browser.close();
+        }
 }
 
 function retreive(){
