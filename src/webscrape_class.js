@@ -23,10 +23,10 @@ class Object{
                     const att = honey(this).find(this.element).attr(this.attribute)
 
                     values.push({
-                    //appending specific text to array of values
                         text
                     })
                 })
+
                 var i = 0
                 while (i < values.length){
                     if(i < values.length){
@@ -38,12 +38,34 @@ class Object{
                     i += 1
                 }
             }).catch(err => console.log(err))
-        
+
     }
+
 }
+
 
 objectOne = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
     'a', 'href', '.get-nutritioncalculator')
 
+    //foods
 
-objectOne.find_element();
+
+food_names = objectOne.find_element();
+
+objectTwo = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
+'li', 'button', '.bite-date')
+//dates
+
+objectTwo.find_element()
+
+objectThree = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
+'span', '', '.accordion-copy')
+//meal names
+
+objectThree.find_element()
+
+objectFour = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
+'div', '', '.bite-menu-course')
+//courses of meals
+
+objectFour.find_element()
