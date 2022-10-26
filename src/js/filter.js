@@ -39,9 +39,9 @@ function removeClass(element, name){
 //https://www.w3schools.com/howto/howto_js_filter_lists.asp
 function findAllergy(){
     var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, ul, li, a, i, txtValue;
-    inputPeanut = document.getElementById('Peanut');
-    inputDairy = document.getElementById('Dairy');
-    inputGluten = document.getElementById('Gluten');
+    inputPeanut = 'Peanut';
+    inputDairy = 'Milk';
+    inputGluten = 'Flour';
     filterPeanut = inputPeanut.value.toUpperCase();
     filterGluten = inputGluten.value.toUpperCase();
     filterDairy = inputDairy.value.toUpperCase();
