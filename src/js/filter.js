@@ -1,5 +1,7 @@
 
 // https://medium.com/@benjamin.flanders96/how-to-create-a-simple-javascript-filter-67e50b32ccb5
+// This next three functions are apart of the filter system that are looking at class names and
+// showing and displaying items based on what corresponding filter button is pushed
 
 filterObjects("all");
 
@@ -37,6 +39,9 @@ function removeClass(element, name){
 }
 
 //https://www.w3schools.com/howto/howto_js_filter_lists.asp
+//https://www.w3schools.com/howto/howto_js_add_class.asp
+// This function should be searching through the file for different items for the different allergies
+// the function then will assign class values according to to the corresponding allergy that is found
 function findAllergy(){
     var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, ul, li, a, i, txtValue;
     inputPeanut = 'Peanut';
@@ -52,25 +57,30 @@ function findAllergy(){
         a = li[i].getElementsByTagName("a")[0];
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+            li[i].classList.add("box Dairy Gluten");
         }
-    }    for (i = 0; i < li.length; i++){
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filterGluten) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+        else if(txtValue.toUpperCase().indexOf(filterGluten) > -1){
+            li[i].classList.add("box Dairy Peanut");
         }
-    }    for (i = 0; i < li.length; i++){
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filterDairy) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+        else if(txtValue.toUpperCase().indexOf(filterDairy) > -1){
+            li[i].classList.add("box Gluten Peanut");
+        }
+        else if(txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterGluten) > -1){
+            li[i].classList.add("box Dairy");
+        }
+        else if(txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1){
+            li[i].classList.add("box Gluten");
+        }
+        else if(txtValue.toUpperCase().indexOf(filterGluten) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1){
+            li[i].classList.add("box Peanut");
+        }
+        else if(txtValue.toUpperCase().indexOf(filterGluten) > -1 &&
+            txtValue.toUpperCase().indexOf(filterDairy) > -1 &&
+            txtValue.toUpperCase().indexOf(filterPeanut) > -1){
+            li[i].classList.add("box");
+        }
+        else {
+            li[i].classList.add("box Peanut Dairy Peanut");
         }
     }
 }
