@@ -38,9 +38,39 @@ function removeClass(element, name){
 
 //https://www.w3schools.com/howto/howto_js_filter_lists.asp
 function findAllergy(){
-    var inputPeanut, inputGluten, inputDairy,  filter, ul, li, a, i, txtValue;
-    inputPeanut = document.getElementById("Peanut")
-    inputDairy = document.getElementById("Dairy")
-    inputGluten = document.getElementById("Gluten")
+    var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, ul, li, a, i, txtValue;
+    inputPeanut = document.getElementById('Peanut');
+    inputDairy = document.getElementById('Dairy');
+    inputGluten = document.getElementById('Gluten');
+    filterPeanut = inputPeanut.value.toUpperCase();
+    filterGluten = inputGluten.value.toUpperCase();
+    filterDairy = inputDairy.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
 
+    for (i = 0; i < li.length; i++){
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }    for (i = 0; i < li.length; i++){
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filterGluten) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }    for (i = 0; i < li.length; i++){
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filterDairy) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
 }
