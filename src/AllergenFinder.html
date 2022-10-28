@@ -72,12 +72,17 @@
 
         .d-flex{
             text-align: right;
+            margin-left: 400px;
         }
 
         .card{
-            margin-top: 100px;
-            margin-left: 100px;
+            margin-top: 50px;
+            margin-left: 90px;
         }
+        .dropdown-item{
+            color:black;
+        }
+
 
     </style>
 
@@ -126,29 +131,94 @@
     </div>
 </nav>
 
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1kD2vFGyfje1e5tlFi-zZsXrqyVJk4SA&ehbc=2E312F" width="640" height="480" align="right"></iframe>
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1kD2vFGyfje1e5tlFi-zZsXrqyVJk4SA&ehbc=2E312F" width="480" height="580" align="right"></iframe>
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
+<div class="card" style="width: 18rem; height: 15rem">
+    <div class="card-body" style="text-align: center" >
         <h5 class="card-title">Allergen Finder</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Click the dropdown</h6>
-        <div class="dropdown show">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Allergens
-            </a>
+        <h6 class="card-subtitle mb-2 text-muted">Click an allergen</h6>
+<!--        <div class="dropdown show">-->
+<!--            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                Allergens-->
+<!--            </a>-->
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Dairy</a>
-                <a class="dropdown-item" href="#">Gluten</a>
-                <a class="dropdown-item" href="#">Nuts</a>
-            </div>
+<!--            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                <a class="dropdown-item" href="#">Dairy</a>-->
+<!--                <a class="dropdown-item" href="#">Gluten</a>-->
+<!--                <a class="dropdown-item" href="#">Nuts</a>-->
+<!--            </div>-->
 
-        </div>
-<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-<!--        <a href="#" class="card-link">Card link</a>-->
-<!--        <a href="#" class="card-link">Another link</a>-->
+<!--        </div>-->
+        <a class="btn btn-primary click" id="glutenbutton" value="glutenbutton" href="#" role="button" style="text-align: center">Gluten</a>
+        <a class="btn btn-primary click2" id="dairybutton" value="dairybutton" href="#" role="button" style="text-align: center">Dairy</a>
+        <a class="btn btn-primary click3" id="nutsbutton" value="nutsbutton" href="#" role="button" style="text-align: center">Nuts</a>
     </div>
 </div>
+
+<div class="card" style="width: 18rem; height: 15rem;">
+    <div class="card-body" style="text-align: center">
+        <h5 class="card-title">Restaurants</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Click a restaurant</h6>
+<!--        <div class="dropdown show">-->
+<!--            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                Restaurants-->
+<!--            </a>-->
+
+<!--            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">-->
+<!--                <a class="dropdown-item" href="#">Pfeiffer</a>-->
+<!--                <a class="dropdown-item" href="#">Tyler's Grille</a>-->
+<!--                <a class="dropdown-item" href="#">Nuts</a>-->
+<!--            </div>-->
+
+<!--        </div>-->
+        <a class="btn btn-primary click4" id="pfeifferbutton" href="#" role="button" style="text-align: center">Pfeiffer</a>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.click').addEventListener('click', (e) => {
+        // Do whatever you want
+        e.target.textContent = 'Clicked!';
+    });
+
+    document.querySelector('.click2').addEventListener('click', (e) => {
+        // Do whatever you want
+        e.target.textContent = 'Clicked!';
+    });
+
+    document.querySelector('.click3').addEventListener('click', (e) => {
+        // Do whatever you want
+        e.target.textContent = 'Clicked!';
+    });
+    document.querySelector('.click4').addEventListener('click', (e) => {
+        // Do whatever you want
+        e.target.textContent = 'Clicked!';
+    });
+
+    var glutenbutton = false;
+    var pfeifferbutton = false;
+    var b1_id = document.getElementById('glutenbutton');
+    var b2_id = document.getElementById('pfeifferbutton');
+    b1_id.addEventListener('click',click1,false);
+    function click1() {
+        // alert("Button1 clicked");
+        glutenbutton = true;
+        check();
+    }
+    b2_id.addEventListener('click',click2,false);
+    function click2() {
+        // alert("Button2 clicked");
+        if (glutenbutton !== false) pfeifferbutton = true; //this is to make sure they are clicked consecutivley
+        check();
+    }
+    function check() {
+        if (glutenbutton === true && pfeifferbutton === true) {
+            alert("Button1 and Button2 clicked consecutively");
+            window.open('https://google.com');
+        }
+    }
+</script>
+
 
 </body>
 </html>
