@@ -137,10 +137,10 @@
                 Allergens
             </a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Dairy</a>
-                <a class="dropdown-item" href="#">Gluten</a>
-                <a class="dropdown-item" href="#">Nuts</a>
+            <div id="buttons" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" onclick="filterObjects('Dairy')" href="#">Dairy</a>
+                <a class="dropdown-item" onclick="filterObjects('Gluten')" href="#">Gluten</a>
+                <a class="dropdown-item" onclick="filterObjects('Peanut')" href="#">Nuts</a>
             </div>
 
         </div>
@@ -149,6 +149,8 @@
 <!--        <a href="#" class="card-link">Another link</a>-->
     </div>
 </div>
+
+<script src="filter.js"></script>
 
 </body>
 </html>
