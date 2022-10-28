@@ -39,6 +39,12 @@
             font-size: 1.5vw;
 
          }
+        img {
+            display: block;
+            width: 70px;
+            height: 50px;
+
+        }
        </style>
 
 </head>
@@ -53,20 +59,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class = "nav-item active">
-                    <a href="Home.html">Home <span class="sr-only"></span></a>
-                </li>
+                <a clas="nav-link"href="Home.html">Home <span class="sr-only"></span></a>
+            </li>
 
                 <li class="nav-item">
-                    <a class="Restaurants.html" href="#">Restaurants</a>
+                    <a class="nav-link" href="Restaurants.html">Restaurants</a>
                 </li>
                 <li class="nav-item">
-                    <a href="AllergenFinder.html">AllergenFinder</a>
+                    <a class="nav-link" href="AllergenFinder.html">AllergenFinder</a>
                 </li>
                 <li class="nav-item">
-                    <a href="HowTo.html">HowTo</a>
+                    <a class="nav-link" href="HowTo.html">HowTo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">AboutUs</a>
+                    <a class="nav-link" href="AboutUs.html">AboutUs</a>
                 </li>
 
                 <!--                <li class="nav-item dropdown">-->
@@ -83,7 +89,7 @@
             </ul>
             <form class="d-flex" role="search" >
 
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                <input class="form-control me-2" id="anythingSearch" type="search" placeholder="Search" aria-label="Search" >
                 <div style="text-align: right";>
                     <button class="btn btn-outline-success" type="submit" >Search</button>
                 </div>
@@ -91,6 +97,23 @@
         </div>
     </div>
 </nav>
+<ul class="list-group">
+    <li class="list-group-item">
+
+        <a class="nav-link" href="https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall" href="#">Pfieffer Dining Hall</a>
+        <img src="pfieffer.jpg" alt="">
+    </li>
+    <li class="list-group-item">
+        <a class="nav-link" href="https://thesportspagegrill.com/brickhouse/pdf/Dine-In_Menu%20_BrickhouseTavern.pdf" href="#">Brickhouse</a>
+        <img src="brickhouse.jpg" alt="" class="img-thumbnail">
+    </li>
+    <li class="list-group-item">
+        <a class="nav-link" href="https://thesportspagegrill.com/sports-page/menu.php">Sport's Page</a>
+        <img src="sportspage.jpg" alt="">
+    </li>
+    <li class="list-group-item">Tyler's Grille</li>
+    <li class="list-group-item">Fiesta Jalapenos</li>
+</ul>
 
 <!--<div class = "row">-->
 <!--        <div class="col-12">-->

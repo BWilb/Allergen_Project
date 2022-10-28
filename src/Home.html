@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name = "viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name = "author" content="">
-    <title>Title</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <style>
-        body{
-            margin: 0;
+        body {
             padding: 0;
+            margin: 0;
+            background-image: url('backgroundimage.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        body {
 
         }
 
+        .header {
+            background-image: url('backgroundimage.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-
-<!--        .container-fluid {-->
-<!--            background-size: 100% 100%;-->
-<!--            background-attachment: fixed;-->
-<!--            position: absolute;-->
-<!--            width: 10vw;-->
-<!--            height: 10vh;-->
-<!--            color:black;-->
-<!--         }-->
-
+        .description {
+	       left: 50%;
+	        position: absolute;
+	        top: 45%;
+	        transform: translate(-50%, -55%);
+	        text-align: center;
+          }
+        .description h1 {
+	        color: #6583ad;
+           }
+        .description p {
+            color: #6583ad;
+            font-size: 1.3rem;
+            line-height: 1.5;
+        }
          .navbar a {
             float: left;
             padding: 7px;
@@ -37,38 +54,56 @@
             font-size: 17px;
 
         }
+        .description button {
+            border:1px solid #6583ad;
+            background:#6583ad;
+            border-radius: 0;
+            color:#fff;
+        }
+        .description button:hover {
+            border:1px solid #fff;
+            background:#fff;
+            color:#000;
+        }
+
         .btn{
-            color: black !important;
-            background-color: white;
-            text-align: right;
-         }
+            color:#0000
+        }
 
          .d-flex{
         text-align: right;
          }
 
-         h1{
-            font-size: 12vw;
-            margin-top: 30vh;
-            padding-left:10vw;
-            font-family: Berkshire Swash;
-            color: black;
-         }
-         p{
-            padding-left: 21vw;
-            position: absolute;
-            top: 0;right: 0;button: 0;left: 0;
-            padding-top: 52vh;
-            font-family: Berkshire Swash;
-            font-size: 1.5vw;
-
-         }
+        /* .features {*/
+        /*    margin: 4em auto;*/
+        /*    padding: 1em;*/
+        /*    position: relative;*/
+        /*}*/
+        /*.feature-title {*/
+        /*    color: #333;*/
+        /*    font-size: 1.3rem;*/
+        /*    font-weight: 700;*/
+        /*    margin-bottom: 20px;*/
+        /*    text-transform: uppercase;*/
+        /*}*/
+        /*.features img {*/
+        /*    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);*/
+        /*    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);*/
+        /*    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);*/
+        /*    margin-bottom: 0px;*/
+        /*}*/
 
 
     </style>
 
 </head>
-<body style="background-color: #e6e5e0; ">
+
+<body>
+<header class="page-header header container-fluid">
+</header>
+<!--<script src="main.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <nav class="navbar navbar-expand-lg" style="background-color: #6583ad;">
     <div class="container-fluid">
@@ -79,20 +114,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class = "nav-item active">
-                    <a href="Home.html">Home <span class="sr-only"></span></a>
+                    <a class="nav-link" href="Home.html">Home <span class="sr-only"></span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="Restaurants.html" href="#">Restaurants</a>
+                    <a class="nav-link" href="Restaurants.html">Restaurants</a>
                 </li>
                 <li class="nav-item">
-                    <a href="AllergenFinder.html">AllergenFinder</a>
+                    <a class="nav-link" href="AllergenFinder.html">AllergenFinder</a>
                 </li>
                 <li class="nav-item">
-                    <a href="HowTo.html">HowTo</a>
+                    <a class="nav-link" href="HowTo.html">HowTo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">AboutUs</a>
+                    <a class="nav-link" href="AboutUs.html">AboutUs</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" >
@@ -107,19 +142,11 @@
 </nav>
 
 
-
-        <div class = "row">
-            <div class="col-12">
-                <h1>Welcome!</h1>
-                <div class="row">
-                    <p></p>
-<!--                </div>-->
-<!--                <a class="btn px-4 py-2 mt-4"></a>-->
-<!--            </div>-->
-        </div>
-    </div>
-        </div>
-    </div>
+<div class="description">
+    <h1>Welcome to the Home Page!</h1>
+    <p>This website was made to find allergen friendly foods at restaurants in Indianola, Iowa! Feel free to explore the page to learn more!</p>
+    <a class="btn btn-outline-secondary btn-lg" href="AboutUs.html">Tell Me More!</button></a>
+</div>
 
 </body>
 </html>
