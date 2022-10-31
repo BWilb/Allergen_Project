@@ -1,3 +1,4 @@
+const mysql = require("mysql")
 class Object{
     constructor(url, element, attribute, class_name){
         this.url = url
@@ -10,37 +11,63 @@ class Object{
         this.axios = require("axios")
         this.cheerio = require("cheerio")
     }
+}
 
-    find_element(params) {
-        this.axios(this.url)
-            .then(response => {
-                const html_script = response.data
-                const values = []
-                const honey = this.cheerio.load(html_script)
-                honey(this.class_name, html_script).each(function(){
-                    //function created to search through entire script 
-                    const text = honey(this).text()
-                    const att = honey(this).find(this.element).attr(this.attribute)
+function find_element(object) {
 
-                    values.push({
-                        text
-                    })
+
+    object.axios(object.url)
+        .then(response => {
+            const html_script = response.data
+            //loading of HTML script into variable
+            const values = []
+            const honey = object.cheerio.load(html_script)
+            honey(object.class_name, html_script).each(function(){
+                //function created to search through entire script
+                const text = honey(this).text()
+                const att = honey(this).find(object.element).attr(object.attribute)
+
+                values.push({
+                    text
+                })
+            })
+
+            var con = mysql.createConnection({
+                //creation of connection to MySQL database
+                    host: "allergen-db1.cutjc5tgzcff.us-east-2.rds.amazonaws.com",
+                    user: "admin",
+                    password: "Bismarck66!",
+                    database: "Foods"
                 })
 
-                var i = 0
-                while (i < values.length){
-                    if(i < values.length){
-                        console.log(values[i].text)
+                con.connect(function(err){
+                    if (err){
+                        throw err;
                     }
-                    else{
-                        break;
+                    console.log("connected")
+
+                    var databaseValues = [[]]
+                    //creation of variable that will store database values
+                    for(let i = 0; i < values.length; i++){
+                        databaseValues[[i]] =
+                            [i, values[i].text, "yes", "yes", "no", "Pfeiffer"]
+
                     }
-                    i += 1
-                }
-            }).catch(err => console.log(err))
 
-    }
+                    con.query("INSERT INTO Food (Food_ID, Food_Name, Peanut_Free, Dairy_Free, Gluten_Free, Location) VALUES ?",
+                     [databaseValues], function(err, result){
 
+                    //querying of webscraped data
+                        if(err) {
+                            throw err;
+                        }
+                        console.log("records inserted " + result.affectedRows);
+                    })
+
+                })
+
+
+        }).catch(err => console.log(err))
 }
 
 
@@ -48,24 +75,4 @@ objectOne = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740
     'a', 'href', '.get-nutritioncalculator')
 
     //foods
-
-
-food_names = objectOne.find_element();
-
-objectTwo = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
-'li', 'button', '.bite-date')
-//dates
-
-objectTwo.find_element()
-
-objectThree = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
-'span', '', '.accordion-copy')
-//meal names
-
-objectThree.find_element()
-
-objectFour = new Object('https://menus.sodexomyway.com/BiteMenu/Menu?menuId=14740&locationId=10395001&whereami=https://simpsondining-preview.sodexomyway.com/dining-near-me/pfieffer-dining-hall',
-'div', '', '.bite-menu-course')
-//courses of meals
-
-objectFour.find_element()
+find_element(objectOne)
