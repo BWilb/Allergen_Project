@@ -14,7 +14,6 @@ class Object{
 }
 
 function finding_inputting(url, object, cals) {
-
     axios(url)
         .then(response => {
             const html_script = response.data
@@ -34,7 +33,6 @@ function finding_inputting(url, object, cals) {
 
             honey(cals.class_name, html_script).each(function(){
                 const text = honey(this).text()
-
                 calVals.push({
                     text
                 })
@@ -60,7 +58,6 @@ function finding_inputting(url, object, cals) {
                     for(let i = 0; i < values.length; i++){
                         databaseValues[[i]] =
                             [i, values[i].text, calVals[i].text, "yes", "yes", "no", "Pfeiffer"]
-
                     }
 
                     con.query("DELETE FROM Food", function(err, result){
@@ -90,8 +87,8 @@ function finding_inputting(url, object, cals) {
 
 
 objectOne = new Object('a', 'href', '.get-nutritioncalculator')
+//foods
 
-    //foods
 cals = new Object('a', 'href', '.get-nutrition')
 //calories of foods
 
