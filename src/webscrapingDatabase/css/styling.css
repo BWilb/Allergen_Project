@@ -1,0 +1,43 @@
+.dining{
+    text-align: center;
+    color: red;
+}
+
+table.data-base-table{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+th.data-id{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+th.data-name{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+th.data-cals{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+th.data-peanut{
+padding-left: 50px;
+    padding-right: 50px;
+}
+
+th.data-dairy{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+th.data-gluten{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+th.location {
+    padding-left: 50px;
+    padding-right: 50px;
+}
