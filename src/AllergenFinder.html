@@ -147,11 +147,16 @@
 <!--                <a class="dropdown-item" href="#">Gluten</a>-->
 <!--                <a class="dropdown-item" href="#">Nuts</a>-->
 <!--            </div>-->
+            <div id="buttons" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" onclick="filterObjects('Dairy')" href="#">Dairy</a>
+                <a class="dropdown-item" onclick="filterObjects('Gluten')" href="#">Gluten</a>
+                <a class="dropdown-item" onclick="filterObjects('Peanut')" href="#">Nuts</a>
+            </div>
 
 <!--        </div>-->
         <a class="btn btn-primary click" id="glutenbutton" value="glutenbutton" href="#" role="button" style="text-align: center">Gluten</a>
         <a class="btn btn-primary click2" id="dairybutton" value="dairybutton" href="#" role="button" style="text-align: center">Dairy</a>
-        <a class="btn btn-primary click3" id="nutsbutton" value="nutsbutton" href="#" role="button" style="text-align: center">Nuts</a>
+        <a class="btn btn-primary click3" id="nutsbutton" value="nutsbutton" href="#" role="button" style="text-align: center">Peanuts</a>
     </div>
 </div>
 
@@ -159,65 +164,15 @@
     <div class="card-body" style="text-align: center">
         <h5 class="card-title">Restaurants</h5>
         <h6 class="card-subtitle mb-2 text-muted">Click a restaurant</h6>
-<!--        <div class="dropdown show">-->
-<!--            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                Restaurants-->
-<!--            </a>-->
-
-<!--            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">-->
-<!--                <a class="dropdown-item" href="#">Pfeiffer</a>-->
-<!--                <a class="dropdown-item" href="#">Tyler's Grille</a>-->
-<!--                <a class="dropdown-item" href="#">Nuts</a>-->
-<!--            </div>-->
-
-<!--        </div>-->
         <a class="btn btn-primary click4" id="pfeifferbutton" href="#" role="button" style="text-align: center">Pfeiffer</a>
     </div>
 </div>
 
-<script>
-    document.querySelector('.click').addEventListener('click', (e) => {
-        // Do whatever you want
-        e.target.textContent = 'Clicked!';
-    });
+#Javascript that dictates what happens when buttons are clicked
+<script src="Output.js"></script>
 
-    document.querySelector('.click2').addEventListener('click', (e) => {
-        // Do whatever you want
-        e.target.textContent = 'Clicked!';
-    });
 
-    document.querySelector('.click3').addEventListener('click', (e) => {
-        // Do whatever you want
-        e.target.textContent = 'Clicked!';
-    });
-    document.querySelector('.click4').addEventListener('click', (e) => {
-        // Do whatever you want
-        e.target.textContent = 'Clicked!';
-    });
-
-    var glutenbutton = false;
-    var pfeifferbutton = false;
-    var b1_id = document.getElementById('glutenbutton');
-    var b2_id = document.getElementById('pfeifferbutton');
-    b1_id.addEventListener('click',click1,false);
-    function click1() {
-        // alert("Button1 clicked");
-        glutenbutton = true;
-        check();
-    }
-    b2_id.addEventListener('click',click2,false);
-    function click2() {
-        // alert("Button2 clicked");
-        if (glutenbutton !== false) pfeifferbutton = true; //this is to make sure they are clicked consecutivley
-        check();
-    }
-    function check() {
-        if (glutenbutton === true && pfeifferbutton === true) {
-            alert("Button1 and Button2 clicked consecutively");
-            window.open('https://google.com');
-        }
-    }
-</script>
+<script src="filter.js"></script>
 
 
 </body>
