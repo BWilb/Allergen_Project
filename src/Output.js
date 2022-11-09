@@ -60,32 +60,32 @@ function click4() {
 
 function check() {
     if (glutenbutton === true && pfeifferbutton === true) {
-        alert("Button1 and Button2 clicked consecutively");
-        window.open('https://google.com');
+        alert("gluten and pfeiffer clicked consecutively");
+        window.open('Output.html');
 
         glutenbutton = false;
         document.querySelector('.click').textContent = 'Gluten';
 
         pfeifferbutton = false;
-        document.querySelector('.click2').textContent = 'Pfeiffer';
+        document.querySelector('.click4').textContent = 'Pfeiffer';
 
     }
-    else if (dairybutton === true && pfeifferbutton === true) {
-        alert("Button1 and Button2 clicked consecutively");
-        window.open('https://google.com');
+     if (dairybutton === true && pfeifferbutton === true) {
+        alert("dairy and pfeiffer clicked consecutively");
+        window.open('Output.html');
         dairybutton = false;
         pfeifferbutton = false;
-        document.querySelector('.click3').textContent = 'Dairy';
-        document.querySelector('.click2').textContent = 'Pfeiffer';
+        document.querySelector('.click2').textContent = 'Dairy';
+        document.querySelector('.click4').textContent = 'Pfeiffer';
     }
 
-    else if (peanutbutton === true && pfeifferbutton === true) {
-        alert("Button1 and Button2 clicked consecutively");
-        window.open('https://google.com');
+     if (peanutbutton === true && pfeifferbutton === true) {
+        alert("peanut and pfieffer clicked consecutively");
+        window.open('Output.html');
         peanutbutton = false;
         pfeifferbutton = false;
-        document.querySelector('.click4').textContent = 'Peanut';
-        document.querySelector('.click2').textContent = 'Pfeiffer';
+        document.querySelector('.click3').textContent = 'Peanut';
+        document.querySelector('.click4').textContent = 'Pfeiffer';
     }
 
 

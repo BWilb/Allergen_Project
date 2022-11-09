@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Output</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class='container'>
+  <a class="btn btn-primary click" id="donebutton" value="donebutton" href="#" role="button" style="text-align: center">Done</a>
+</div>
+<script>
+  var donebutton = false;
+  var done_id = document.getElementById('donebutton');
+
+  done_id.addEventListener('click',click1,false);
+  function click1() {
+    // alert("Button1 clicked");
+    donebutton = true;
+    check();
+  }
+  function check() {
+    if (donebutton === true) {
+      window.open('AllergenFinder.html');
+    }
+  }
+
+</script>
+
+</body>
+</html>
