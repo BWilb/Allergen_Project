@@ -61,7 +61,7 @@ function click4() {
 function check() {
     if (glutenbutton === true && pfeifferbutton === true) {
         alert("gluten and pfeiffer clicked consecutively");
-        window.open('Output.html');
+        window.open('src/webscrapingDatabase/html/Pfieffer.html');
 
         glutenbutton = false;
         document.querySelector('.click').textContent = 'Gluten';
@@ -72,7 +72,7 @@ function check() {
     }
      if (dairybutton === true && pfeifferbutton === true) {
         alert("dairy and pfeiffer clicked consecutively");
-        window.open('Output.html');
+        window.open('src/webscrapingDatabase/html/Pfieffer.html');
         dairybutton = false;
         pfeifferbutton = false;
         document.querySelector('.click2').textContent = 'Dairy';
@@ -81,7 +81,7 @@ function check() {
 
      if (peanutbutton === true && pfeifferbutton === true) {
         alert("peanut and pfieffer clicked consecutively");
-        window.open('Output.html');
+        window.open('src/webscrapingDatabase/html/Pfieffer.html');
         peanutbutton = false;
         pfeifferbutton = false;
         document.querySelector('.click3').textContent = 'Peanut';
