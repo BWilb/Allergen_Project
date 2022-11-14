@@ -70,7 +70,16 @@ function check() {
         document.querySelector('.click4').textContent = 'Pfeiffer';
 
     }
-     if (dairybutton === true && pfeifferbutton === true) {
+    if (peanutbutton === true && pfeifferbutton === true) {
+        alert("peanut and pfeiffer clicked consecutively");
+        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        peanutbutton = false;
+        pfeifferbutton = false;
+        document.querySelector('.click3').textContent = 'Peanut';
+        document.querySelector('.click4').textContent = 'Pfeiffer';
+    }
+
+    if (dairybutton === true && pfeifferbutton === true) {
         alert("dairy and pfeiffer clicked consecutively");
         window.open('src/webscrapingDatabase/html/Pfieffer.html');
         dairybutton = false;
@@ -79,14 +88,6 @@ function check() {
         document.querySelector('.click4').textContent = 'Pfeiffer';
     }
 
-     if (peanutbutton === true && pfeifferbutton === true) {
-        alert("peanut and pfieffer clicked consecutively");
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
-        peanutbutton = false;
-        pfeifferbutton = false;
-        document.querySelector('.click3').textContent = 'Peanut';
-        document.querySelector('.click4').textContent = 'Pfeiffer';
-    }
 
 
 
