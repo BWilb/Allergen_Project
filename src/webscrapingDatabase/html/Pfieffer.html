@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <style>
 
@@ -115,7 +118,12 @@ th.location {
 </head>
 <body>
 
+
+<div class="container">
+    <h1 class="text-center mt-3 mb-3"></h1>
+
 <h1 style="text-align: center">Pfieffer Dining Hall</h1>
+</div>
 
 <div class="navbar">
     <div class="dropdown">
@@ -133,8 +141,11 @@ th.location {
         </div>
     </div>
 </div>
-
-<table class="data-base-table">
+    <div class="container mt-4">
+        <p class="alert alert-success mt-4"></p>
+        <br />
+<table class="table">
+    <thead>
     <tr>
         <th class="data-id">Food_ID</th>
         <th class="data-name">Food_Name</th>
@@ -144,7 +155,10 @@ th.location {
         <th class="data-gluten">Gluten_Free</th>
         <th class="data-location">Location</th>
     </tr>
+    </thead>
 </table>
+
+</div>
 
 <script>
 /* When the user clicks on the button,
