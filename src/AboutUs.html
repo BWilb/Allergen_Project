@@ -15,7 +15,7 @@
         body {
             padding: 0;
             margin: 0;
-            background-image: url('PagesWebsite/backgroundimage.jpg');
+            background-image: url('backgroundimage.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -25,7 +25,7 @@
         }
 
         .header {
-            background-image: url('PagesWebsite/backgroundimage.jpg');
+            background-image: url('backgroundimage.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -81,6 +81,25 @@
             margin-top: 200px;
         }
 
+        .card{
+            margin-left:50px;
+            margin-top: 100px;
+        }
+
+        .card-title{
+            text-align: center;
+        }
+
+        .card-body{
+            text-align: center;
+        }
+
+        .nav-item {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+
     </style>
 
 </head>
@@ -94,7 +113,7 @@
 
 <nav class="navbar navbar-expand-lg" style="background-color: #6583ad;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#" style="color: darkblue ">CMSC-375</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -108,18 +127,18 @@
                     <a class="nav-link" href="Restaurants.html">Restaurants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="AllergenFinder.html">AllergenFinder</a>
+                    <a class="nav-link" href="AllergenFinder.html">Allergen Finder</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="HowTo.html">HowTo</a>
+                    <a class="nav-link" href="HowTo.html">How To</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="AboutUs.html">AboutUs</a>
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" >
 
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" >
                 <div style="text-align: right";>
                     <button class="btn btn-outline-success" type="submit" >Search</button>
                 </div>
@@ -130,13 +149,41 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="container p-3 my-3 border"></div>
+        <div class="col-lg-6 mb-4">
+            <div class="card" style=" height: 17rem; width: 25rem;">
+                <img class="card-img-top" src="" alt="">
+
+                <div class="card-body">
+                    <h5 class="card-title">Class Project</h5>
+                    <p class="card-text">
+                        For our class on software engineering, we were tasked with developing an app,
+                        website, or application that would be useful to the public. In our group,
+                        we decided it would be helpful to have some kind of application to filter for
+                        allergens at websites. Based on previous experience, there is not much software
+                        out there with this specific functionality.
+                    </p>
+
+                </div>
+            </div>
         </div>
-        <div class="col">
-            2 of 2
+        <div class="col-lg-6 mb-4">
+            <div class="card" style=" height: 17rem; width: 25rem;">
+                <img class="card-img-top" src="" alt="">
+
+                <div class="card-body">
+                    <h5 class="card-title">Motivations</h5>
+                    <p class="card-text">
+                        Many people today have allergies that need to be avoided.
+                        With this in mind, it can be generally hard to locate allergen friendly places
+                        We wanted to create a website easy to use and easy to locate food options based on restaurants in
+                        the Indianola area.
+                    </p>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>

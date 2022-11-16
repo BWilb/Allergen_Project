@@ -12,6 +12,15 @@
 
 
     <style>
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
         .navbar a {
             float: left;
             padding: 7px;
@@ -26,35 +35,42 @@
             text-align: right;
          }
 
-        .d-flex{
-            text-align: right;
-            margin-left: 400px;
+        .nav-item {
+            display: inline-block;
+            white-space: nowrap;
         }
 
-
-         p{
+         p {
             padding-left: 5vw;
             position: absolute;
             top: 0;right: 0;button: 0;left: 0;
             padding-top: 20vh;
             font-family: Berkshire Swash;
             font-size: 1.5vw;
-
          }
+
+        .d-flex{
+            text-align: right;
+            margin-left: 400px;
+        }
+
         img {
             display: block;
             width: 70px;
             height: 50px;
-
         }
-       </style>
+
+
+
+
+    </style>
 
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg" style="background-color: #6583ad;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#" style="color: darkblue ">CMSC-375</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,13 +84,13 @@
                     <a class="nav-link" href="Restaurants.html">Restaurants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="AllergenFinder.html">AllergenFinder</a>
+                    <a class="nav-link" href="AllergenFinder.html">Allergen Finder</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="HowTo.html">HowTo</a>
+                    <a class="nav-link" href="HowTo.html">How To</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="AboutUs.html">AboutUs</a>
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" >
@@ -101,8 +117,15 @@
         <a class="nav-link" href="https://thesportspagegrill.com/sports-page/menu.php">Sport's Page</a>
         <img src="sportspage.jpg" alt="">
     </li>
-    <li class="list-group-item">Tyler's Grille</li>
-    <li class="list-group-item">Fiesta Jalapenos</li>
+    <li class="list-group-item">
+        <a class="nav-link" href="https://simpsondining.sodexomyway.com/dining-near-me/tylers-grille">Tyler's Grille</a>
+        <img src="TylersGrille.png" alt="">
+    </li>
+
+    <li class="list-group-item">
+        <a class="nav-link" href="https://www.fiestajalapenosia.com/menu">Fiesta Jalapenos</a>
+        <img src="FiestaJalapenos.jpg" alt="">
+    </li>
 </ul>
 
 </div>
