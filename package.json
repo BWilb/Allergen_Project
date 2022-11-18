@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
     "pupeteer": "^0.0.1"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.6",
+    "express-validator": "^6.14.2",
+    "http-errors": "^2.0.0"
   }
 }
