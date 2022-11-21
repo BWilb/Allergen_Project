@@ -2,21 +2,22 @@ import mysql.connector
 import webbrowser
 
 conn = mysql.connector.connect(user='admin', password='Bismarck66!',
-                               host='allergen-db1.cutjc5tgzcff.us-east-2.rds.amazonaws.com', database='Foods')
+                               host='allergen-db1.cutjc5tgzcff.us-east-2.rds.amazonaws.com',database='Foods')
 
 if conn:
     print ("Connected Successfully")
 else:
     print ("Connection Not Established")
 
-select_employee = """SELECT * FROM Foods.Food"""
+
+select_all = """SELECT * FROM Food"""
 cursor = conn.cursor()
-cursor.execute(select_employee)
+cursor.execute(select_all)
 result = cursor.fetchall()
 
 p = []
 
-tbl = "<tr><td>ID</td><td>Name</td><td>Email</td><td>Phone</td></tr>"
+tbl = "<tr><td>Food_ID</td><td id='id'>Food_Name</td><td>Calories</td><td>Peanut_Free</td><td>Dairy_Free</td><td>Gluten_Free</td><td>Location</td></tr>"
 p.append(tbl)
 
 for row in result:
@@ -26,8 +27,15 @@ for row in result:
     p.append(b)
     c = "<td>%s</td>"%row[2]
     p.append(c)
-    d = "<td>%s</td></tr>"%row[3]
+    d = "<td>%s</td>"%row[3]
     p.append(d)
+    e = "<td>%s</td>"%row[4]
+    p.append(e)
+    f = "<td>%s</td>"%row[5]
+    p.append(f)
+
+    g = "<td>%s</td></tr>"%row[6]
+    p.append(g)
 
 
 contents = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -38,14 +46,14 @@ http-equiv="content-type">
 <title>Python Webbrowser</title>
 </head>
 <body>
-<table>
+<table style="padding-left: 50px">
 %s
 </table>
 </body>
 </html>
 '''%(p)
 
-filename = 'webbrowser.html'
+filename = 'practice_table.html'
 
 def main(contents, filename):
     output = open(filename,"w")
