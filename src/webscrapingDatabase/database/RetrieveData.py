@@ -1,5 +1,6 @@
 import mysql.connector
 import webbrowser
+from bs4 import BeautifulSoup
 
 conn = mysql.connector.connect(user='admin', password='Bismarck66!',
                                host='allergen-db1.cutjc5tgzcff.us-east-2.rds.amazonaws.com', database='Foods')
@@ -14,10 +15,14 @@ cursor = conn.cursor()
 cursor.execute(select_employee)
 result = cursor.fetchall()
 
+filename = 'Pfieffer.html'
+soup = BeautifulSoup(filename, 'html.parser')
+table = soup.find(id="dataTable")
+
 p = []
 
 tbl = "<tr><td>ID</td><td>Name</td><td>Email</td><td>Phone</td></tr>"
-p.append(tbl)
+p.append(table)
 
 for row in result:
     a = "<tr><td>%s</td>"%row[0]
@@ -45,15 +50,18 @@ http-equiv="content-type">
 </html>
 '''%(p)
 
-filename = 'webbrowser.html'
+# filename = 'Pfieffer.html'
 
-def main(contents, filename):
-    output = open(filename,"w")
-    output.write(contents)
+
+def main(table1, filename1):
+    output = open(filename1,"w")
+    output.write(table1)
     output.close()
 
-main(contents, filename)
+
+main(table, filename)
 webbrowser.open(filename)
+
 
 if(conn.is_connected()):
     cursor.close()
