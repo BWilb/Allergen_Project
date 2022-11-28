@@ -6,7 +6,7 @@ document.querySelector('.click').addEventListener('click', (e) => {
     e.target.textContent = 'Clicked!';
 });
 
-document.querySelector('.click2').addEventListener('click', (e) => {
+document.querySelector('.click2').addEventListener('click', (e)      => {
     // Do whatever you want
     e.target.textContent = 'Clicked!';
 });
@@ -51,12 +51,13 @@ function click3() {
 b4_id.addEventListener('click', click4, false)
 function click4() {
     // alert("Button2 clicked");
-    if (glutenbutton!== false && dairybutton !== false) pfeifferbutton = true;
-    else if (peanutbutton!== false && dairybutton !== false) pfeifferbutton = true;
-    else if (peanutbutton!== false && glutenbutton !== false) pfeifferbutton = true;
-    else if (glutenbutton !== false) pfeifferbutton = true;//this is to make sure they are clicked consecutivley
-    else if (dairybutton !== false) pfeifferbutton = true;
-    else if (peanutbutton !== false) pfeifferbutton = true;
+    // if (glutenbutton!== false && dairybutton !== false)
+        pfeifferbutton = true;
+    // else if (peanutbutton!== false && dairybutton !== false) pfeifferbutton = true;
+    // else if (peanutbutton!== false && glutenbutton !== false) pfeifferbutton = true;
+    // else if (glutenbutton !== false) pfeifferbutton = true;//this is to make sure they are clicked consecutivley
+    // else if (dairybutton !== false) pfeifferbutton = true;
+    // else if (peanutbutton !== false) pfeifferbutton = true;
 
     check();
 }
