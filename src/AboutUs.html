@@ -99,6 +99,14 @@
             white-space: nowrap;
         }
 
+        a.btn.btn-outline-secondary.btn-lg {
+            margin-left: 450px;
+            color: black;
+        }
+        .form-outline{
+            margin-left: 300px;
+        }
+
 
     </style>
 
@@ -136,13 +144,27 @@
                     <a class="nav-link" href="AboutUs.html">About Us</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search" >
 
-                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" >
-                <div style="text-align: right";>
-                    <button class="btn btn-outline-success" type="submit" >Search</button>
+
+                <!-- Search form -->
+                <div class="input-group ps-5">
+                    <div id="navbar-search-autocomplete" class="form-outline">
+                        <input type="search" id="form1" class="form-control" />
+                        <label class="form-label" for="form1">Search</label>
+                    </div>
+                    <button type="button" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-            </form>
+            </div>
+
+<!--            <form class="d-flex" role="search" >-->
+
+<!--                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" >-->
+<!--                <div style="text-align: right";>-->
+<!--                    <button class="btn btn-outline-success" type="submit" >Search</button>-->
+<!--                </div>-->
+<!--            </form>-->
         </div>
     </div>
 </nav>
@@ -180,9 +202,12 @@
                     </p>
 
                 </div>
+
             </div>
         </div>
+
     </div>
+    <a class="btn btn-outline-secondary btn-lg" href="HowTo.html">Tell Me More!</a>
 </div>
 
 </body>
