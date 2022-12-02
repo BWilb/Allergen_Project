@@ -43,44 +43,41 @@ function removeClass(element, name){
 // This function should be searching through the file for different items for the different allergies
 // the function then will assign class values according to to the corresponding allergy that is found
 function findAllergy(){
-    var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, ul, li, a, i, txtValue;
-    inputPeanut = 'Peanut';
-    inputDairy = 'Milk';
-    inputGluten = 'Flour';
+    var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, table, tr, td, i, txtValue;
+    inputPeanut = "Peanut";
+    inputDairy = "Milk";
+    inputGluten = "Cookie";
     filterPeanut = inputPeanut.value.toUpperCase();
     filterGluten = inputGluten.value.toUpperCase();
     filterDairy = inputDairy.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
 
-    for (i = 0; i < li.length; i++){
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
-            li[i].classList.add("box Dairy Gluten");
-        }
-        else if(txtValue.toUpperCase().indexOf(filterGluten) > -1){
-            li[i].classList.add("box Dairy Peanut");
-        }
-        else if(txtValue.toUpperCase().indexOf(filterDairy) > -1){
-            li[i].classList.add("box Gluten Peanut");
-        }
-        else if(txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterGluten) > -1){
-            li[i].classList.add("box Dairy");
-        }
-        else if(txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1){
-            li[i].classList.add("box Gluten");
-        }
-        else if(txtValue.toUpperCase().indexOf(filterGluten) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1){
-            li[i].classList.add("box Peanut");
-        }
-        else if(txtValue.toUpperCase().indexOf(filterGluten) > -1 &&
-            txtValue.toUpperCase().indexOf(filterDairy) > -1 &&
-            txtValue.toUpperCase().indexOf(filterPeanut) > -1){
-            li[i].classList.add("box");
-        }
-        else {
-            li[i].classList.add("box Peanut Dairy Peanut");
+    for (i = 0; i < tr.length; i++){
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
+                tr[i].classList.add("box Dairy Gluten");
+            } else if (txtValue.toUpperCase().indexOf(filterGluten) > -1) {
+                tr[i].classList.add("box Dairy Peanut");
+            } else if (txtValue.toUpperCase().indexOf(filterDairy) > -1) {
+                tr[i].classList.add("box Gluten Peanut");
+            } else if (txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterGluten) > -1) {
+                tr[i].classList.add("box Dairy");
+            } else if (txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1) {
+                tr[i].classList.add("box Gluten");
+            } else if (txtValue.toUpperCase().indexOf(filterGluten) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1) {
+                tr[i].classList.add("box Peanut");
+            } else if (txtValue.toUpperCase().indexOf(filterGluten) > -1 &&
+                txtValue.toUpperCase().indexOf(filterDairy) > -1 &&
+                txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
+                tr[i].classList.add("box");
+            } else {
+                tr[i].classList.add("box Peanut Dairy Peanut");
+            }
         }
     }
 }
+
+document.getElementsByName()
