@@ -68,7 +68,7 @@ function check() {
     }
 
     else if (dairybutton === true && pfeifferbutton === true && peanutbutton === true) {
-        window.open('webbrowser.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
         dairybutton = false;
         pfeifferbutton = false;
         peanutbutton = false;
@@ -89,7 +89,7 @@ function check() {
     }
 
     else if (glutenbutton === true && pfeifferbutton === true) {
-        window.open('webbrowser.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
 
         glutenbutton = false;
         document.querySelector('.click').textContent = 'Gluten';
