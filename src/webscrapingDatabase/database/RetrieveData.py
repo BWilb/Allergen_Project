@@ -58,6 +58,9 @@ body {
             background-attachment: fixed;
             background-size: cover;
         }
+        .box{
+            display: none;
+        }
         .header {
             background-image: url('backgroundimage.jpg');
             background-size: cover;

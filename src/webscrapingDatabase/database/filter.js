@@ -45,8 +45,8 @@ function removeClass(element, name){
 function findAllergy(){
     var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, table, tr, td, i, txtValue;
     inputPeanut = "Peanut";
-    inputDairy = "1";
-    inputGluten = "Cookie";
+    inputDairy = "Cheese";
+    inputGluten = "Cookies";
     inputGluten.type = "text";
     filterPeanut = inputPeanut.toUpperCase().valueOf();
     filterGluten = inputGluten.valueOf().toUpperCase();
