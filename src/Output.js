@@ -57,7 +57,7 @@ function click4() {
 
 function check() {
     if (dairybutton === true && pfeifferbutton === true && glutenbutton=== true) {
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
         dairybutton = false;
         pfeifferbutton = false;
         glutenbutton = false;
@@ -68,7 +68,7 @@ function check() {
     }
 
     else if (dairybutton === true && pfeifferbutton === true && peanutbutton === true) {
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
         dairybutton = false;
         pfeifferbutton = false;
         peanutbutton = false;
@@ -78,7 +78,7 @@ function check() {
         document.querySelector('.click3').textContent = 'Peanut';
     }
     else if (glutenbutton === true && pfeifferbutton === true && peanutbutton === true) {
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
         glutenbutton = false;
         pfeifferbutton = false;
         peanutbutton = false;
@@ -89,7 +89,7 @@ function check() {
     }
 
     else if (glutenbutton === true && pfeifferbutton === true) {
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
 
         glutenbutton = false;
         document.querySelector('.click').textContent = 'Gluten';
@@ -100,7 +100,7 @@ function check() {
     }
 
     else if (dairybutton === true && pfeifferbutton === true) {
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
         dairybutton = false;
         pfeifferbutton = false;
         document.querySelector('.click2').textContent = 'Dairy';
@@ -108,7 +108,7 @@ function check() {
     }
 
     else if (peanutbutton === true && pfeifferbutton === true) {
-        window.open('src/webscrapingDatabase/html/Pfieffer.html');
+        window.open('src/webscrapingDatabase/database/webbrowser.html');
         peanutbutton = false;
         pfeifferbutton = false;
         document.querySelector('.click4').textContent = 'Pfeiffer';
