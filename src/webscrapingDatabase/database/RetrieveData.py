@@ -16,11 +16,11 @@ result = cursor.fetchall()
 
 p = []
 
-tbl = "<tr><th>Food_Name</th><th>Calories</th><th>Peanut_Free</th><th>Dairy_Free</th><th>Gluten_Free</th></tr>"
+tbl = "<tr style='border: 1px solid black'><th id='name'>Food_Name</th><th style='padding-right: 145px' id='cal'>Calories</th><th style='padding-right: 145px' id='peanut'>Peanut_Free</th><th style='padding-right: 145px' id='dairy'>Dairy_Free</th><th style='145px' id='gluten'>Gluten_Free</th></tr>"
 p.append(tbl)
 
 for row in result:
-    a = "<tr><td>%s</td>" % row[0]
+    a = "<tr style='border: 1px solid black'><td>%s</td>" % row[0]
     p.append(a)
     b = "<td>%s</td>" % row[1]
     p.append(b)
@@ -186,7 +186,7 @@ body {
 </html>
 '''%(c)
 
-filename = '../../Pfieffer.html'
+filename = 'pfieffer.html'#'../../Pfieffer.html'
 
 
 def main(contents, filename):
