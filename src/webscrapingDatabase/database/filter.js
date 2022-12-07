@@ -45,39 +45,59 @@ function removeClass(element, name){
 function findAllergy(){
     var inputPeanut, inputGluten, inputDairy, filterPeanut, filterGluten, filterDairy, table, tr, td, i, txtValue;
     inputPeanut = "Peanut";
-    inputDairy = "Milk";
+    inputDairy = "1";
     inputGluten = "Cookie";
-    filterPeanut = inputPeanut.value.toUpperCase();
-    filterGluten = inputGluten.value.toUpperCase();
-    filterDairy = inputDairy.value.toUpperCase();
+    inputGluten.type = "text";
+    filterPeanut = inputPeanut.toUpperCase().valueOf();
+    filterGluten = inputGluten.valueOf().toUpperCase();
+    filterDairy = inputDairy.valueOf().toUpperCase();
     table = document.getElementById("dataTable");
     tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++){
         td = tr[i].getElementsByTagName("td")[0];
+        console.log(td)
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
-                tr[i].classList.add("box Dairy Gluten");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Dairy");
+                tr[i].classList.add("Gluten");
             } else if (txtValue.toUpperCase().indexOf(filterGluten) > -1) {
-                tr[i].classList.add("box Dairy Peanut");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Dairy");
+                tr[i].classList.add("Peanut");
             } else if (txtValue.toUpperCase().indexOf(filterDairy) > -1) {
-                tr[i].classList.add("box Gluten Peanut");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Gluten");
+                tr[i].classList.add("Peanut");
             } else if (txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterGluten) > -1) {
-                tr[i].classList.add("box Dairy");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Dairy");
             } else if (txtValue.toUpperCase().indexOf(filterPeanut) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1) {
-                tr[i].classList.add("box Gluten");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Gluten");
             } else if (txtValue.toUpperCase().indexOf(filterGluten) > -1 && txtValue.toUpperCase().indexOf(filterDairy) > -1) {
-                tr[i].classList.add("box Peanut");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Peanut");
             } else if (txtValue.toUpperCase().indexOf(filterGluten) > -1 &&
                 txtValue.toUpperCase().indexOf(filterDairy) > -1 &&
                 txtValue.toUpperCase().indexOf(filterPeanut) > -1) {
                 tr[i].classList.add("box");
             } else {
-                tr[i].classList.add("box Peanut Dairy Peanut");
+                tr[i].classList.add("box");
+                tr[i].classList.add("Peanut");
+                tr[i].classList.add("Dairy");
+                tr[i].classList.add("Gluten");
             }
         }
     }
 }
 
-document.getElementsByName()
+// document.getElementsByName();
+
+function testFunction(){
+    var table;
+    table = document.getElementById("dataTable");
+    table.classList.add("box");
+}

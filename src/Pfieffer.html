@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name = "author" content="">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <style>
+body {
+            padding: 0;
+            margin: 0;
+            background-image: url('backgroundimage.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .header {
+            background-image: url('backgroundimage.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .description h1 {
+            color: #6583ad;
+        }
+        .description p {
+            color: #6583ad;
+            font-size: 1.3rem;
+            line-height: 1.5;
+        }
+        .navbar a {
+            float: left;
+            padding: 7px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .description button {
+            border:1px solid #6583ad;
+            background:#6583ad;
+            border-radius: 0;
+            color:#fff;
+        }
+        .description button:hover {
+            border:1px solid #fff;
+            background:#fff;
+            color:#000;
+        }
+        .show{
+            display: block;
+        }
+        .btn{
+            color:#0000
+        }
+        .d-flex{
+            text-align: right;
+            margin-left: 400px;
+        }
+        .nav-item {
+            display: inline-block;
+            white-space: nowrap;
+        }    
+</style>
+</head>
+<body onload="findAllergy()">
+
+<header class="page-header header container-fluid">
+</header>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg" style="background-color: #6583ad;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"style="color: darkblue ">CMSC-375</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class = "nav-item active">
+                    <a class="nav-link" href="Home.html">Home <span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Restaurants.html">Restaurants</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllergenFinder.html">Allergen Finder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="HowTo.html">How To</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search" >
+
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                <div style="text-align: right">
+                    <button class="btn btn-outline-success" type="submit" >Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="text-center mt-3 mb-3"></h1>
+
+    <h1 style="text-align: center">Pfieffer Dining Hall</h1>
+</div>
+<div class="card" style="width: 18rem; height: 15rem">
+    <div class="card-body" style="text-align: center" >
+        <h5 class="card-title">Allergen Finder</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Click an allergen</h6>
+
+        <a class="btn btn-primary click" id="all" onclick="filterObjects('all')" value="allbutton" href="#" role="button" style="text-align: center">All</a>
+        <a class="btn btn-primary click" id="glutenbutton" onclick="filterObjects('Gluten')" value="glutenbutton" href="#" role="button" style="text-align: center">Gluten</a>
+        <a class="btn btn-primary click2" id="dairybutton" onclick="filterObjects('Dairy')" value="dairybutton" href="#" role="button" style="text-align: center">Dairy</a>
+        <a class="btn btn-primary click3" id="peanutbutton" onclick="filterObjects('Peanut')"  value="peanutbutton" href="#" role="button" style="text-align: center">Peanut</a>
+
+    </div>
+</div>
+<div class="container mt-4">
+    <p class="alert alert-success mt-4"></p>
+    <table id="dataTable">
+        <tr><th>Food_Name</th><th>Calories</th><th>Peanut_Free</th><th>Dairy_Free</th><th>Gluten_Free</th></tr> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>207cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>335cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>240cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>137cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>268cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>261cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>179cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>417cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>98cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>109cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>61cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>147cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>49cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>176cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>82cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>75cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>112cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>118cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>140cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>64cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>615cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>71cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>178cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>35cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>235cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>479cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>28cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>144cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>82cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>75cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>112cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>327cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>648cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>53cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>190cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>177cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>261cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>241cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>70cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>443cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>117cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>187cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>322cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>119cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>194cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>134cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>43cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>99cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>63cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>557cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>112cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>92cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>217cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>85cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>155cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>341cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>102cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>183cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>134cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>43cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>99cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>437cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>101cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>136cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>175cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>535cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>133cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>285cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>99cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>179cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>97cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>347cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>217cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>288cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>252cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>70cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>306cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>134cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>163cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>126cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>25cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>177cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>120cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>87cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>259cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>137cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>32cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>142cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>64cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>427cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>134cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>163cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>126cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>161cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>89cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>628cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>190cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>38cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>261cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>189cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>178cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>476cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>187cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>139cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>571cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>44cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>222cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>185cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>19cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>175cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>77cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>134cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>113cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>79cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>805cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>91cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>127cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>80cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>125cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>264cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>312cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>118cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>16cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>327cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>134cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>113cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>79cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>77cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>208cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>61cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>140cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>300cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>261cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>217cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>2242cal   </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>117cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>407cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>187cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>70cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>179cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>222cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>338cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>40cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>323cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>272cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>144cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>152cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>143cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>58cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>190cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>109cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>128cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>37cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>467cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>84cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>315cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>121cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>159cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>113cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>128cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>144cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>152cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>58cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>83cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>117cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>173cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>25cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>74cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>261cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>412cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>235cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>216cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>175cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>355cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>158cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>178cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>322cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>388cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>104cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>260cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>56cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>22cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>144cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>152cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>95cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>93cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>91cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>195cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>88cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>131cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>207cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>81cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>33cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>499cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>528cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>61cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>144cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>152cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>93cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>95cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>58cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>105cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>88cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>96cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>231cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>245cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>170cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>141cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>227cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>217cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>187cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>Kung Pao Pork</td> <td>contains p</td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>16cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>114cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>213cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>271cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>25cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>261cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>272cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>88cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>120cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>100cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>155cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>147cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>37cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>185cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>242cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>cal     
+ </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>88cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>124cal    </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>75cal     </td> <td>yes</td> <td>yes</td> <td>no</td> <tr><td>[object Object]</td> <td>190cal    </td> <td>yes</td> <td>yes</td> <td>no</td>
+    </table>
+
+</div>
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
+<script src="webscrapingDatabase/database/filter.js"></script>
+</body>
+</html>

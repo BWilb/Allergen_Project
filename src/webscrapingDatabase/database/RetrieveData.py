@@ -9,14 +9,14 @@ if conn:
 else:
     print("Connection Not Established")
 
-select_all = """SELECT * FROM Food"""
+select_all = """SELECT Food_Name, Calories, Peanut_Free, Dairy_Free, Gluten_Free FROM Foods.Food"""
 cursor = conn.cursor()
 cursor.execute(select_all)
 result = cursor.fetchall()
 
 p = []
 
-tbl = "<tr><th>Food_ID</th><th>Food_Name</th><th>Calories</th><th>Peanut_Free</th><th>Dairy_Free</th><th>Gluten_Free</th><th>Location</th></tr>"
+tbl = "<tr><th>Food_Name</th><th>Calories</th><th>Peanut_Free</th><th>Dairy_Free</th><th>Gluten_Free</th></tr>"
 p.append(tbl)
 
 for row in result:
@@ -30,186 +30,163 @@ for row in result:
     p.append(d)
     e = "<td>%s</td>" % row[4]
     p.append(e)
-    f = "<td>%s</td>" % row[5]
-    p.append(f)
-    g = "<td>%s</td></tr>" % row[6]
-    p.append(g)
-print(p)
+    # f = "<td>%s</td>" % row[5]
+    # p.append(f)
+    # g = "<td>%s</td></tr>" % row[6]
+    # p.append(g)
+
 c = " ".join(p)
-contents = '''<!DOCTYPE html>
+contents = '''
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name = "author" content="">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <style>
-
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  cursor: pointer;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-  background-color: red;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.show {
-  display: block;
-}
-
-h1.dining{
-      text-align: center;
-}
-
-table.data-base-table{
-      padding-left: 100px;
-      padding-right: 100px;
-}
-th.data-id{
-      padding-left: 75px;
-      padding-right: 25px;
-}
-
-th.data-name{
-      padding-left: 75px;
-      padding-right: 25px;
- }
-
-th.data-cals{
-      padding-left: 75px;
-      padding-right: 25px;
-}
-
-th.data-peanut{
-  padding-left: 75px;
-      padding-right: 25px;
-}
-
-th.data-dairy{
-      padding-left: 75px;
-      padding-right: 25px;
-}
-
-th.data-gluten{
-      padding-left: 75px;
-      padding-right: 100px;
-}
-
-th.location {
-      padding-left: 75px;
-      padding-right: 25px;
-}
+body {
+            padding: 0;
+            margin: 0;
+            background-image: url('backgroundimage.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .header {
+            background-image: url('backgroundimage.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .description h1 {
+            color: #6583ad;
+        }
+        .description p {
+            color: #6583ad;
+            font-size: 1.3rem;
+            line-height: 1.5;
+        }
+        .navbar a {
+            float: left;
+            padding: 7px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .description button {
+            border:1px solid #6583ad;
+            background:#6583ad;
+            border-radius: 0;
+            color:#fff;
+        }
+        .description button:hover {
+            border:1px solid #fff;
+            background:#fff;
+            color:#000;
+        }
+        .show{
+            display: block;
+        }
+        .btn{
+            color:#0000
+        }
+        .d-flex{
+            text-align: right;
+            margin-left: 400px;
+        }
+        .nav-item {
+            display: inline-block;
+            white-space: nowrap;
+        }    
 </style>
 </head>
-<body>
+<body onload="findAllergy()">
 
+<header class="page-header header container-fluid">
+</header>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg" style="background-color: #6583ad;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"style="color: darkblue ">CMSC-375</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class = "nav-item active">
+                    <a class="nav-link" href="Home.html">Home <span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Restaurants.html">Restaurants</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllergenFinder.html">Allergen Finder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="HowTo.html">How To</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search" >
+
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                <div style="text-align: right">
+                    <button class="btn btn-outline-success" type="submit" >Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
 
 <div class="container">
     <h1 class="text-center mt-3 mb-3"></h1>
 
-<h1 style="text-align: center">Pfieffer Dining Hall</h1>
+    <h1 style="text-align: center">Pfieffer Dining Hall</h1>
 </div>
+<div class="card" style="width: 18rem; height: 15rem">
+    <div class="card-body" style="text-align: center" >
+        <h5 class="card-title">Allergen Finder</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Click an allergen</h6>
 
-<div class="navbar">
-    <div class="dropdown">
-        <button class="dropbtn" onclick="myFunction()">Dropdown
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-            <a href="#" id="Monday">Monday</a>
-            <a href="#" id="Tuesday">Tuesday</a>
-            <a href="#" id="Wednesday" >Wednesday</a>
-            <a href="#" id="Thursday">Thursday</a>
-            <a href="#" id="Friday">Friday</a>
-            <a href="#" id="Saturday">Saturday</a>
-            <a href="#" id="Sunday">Sunday</a>
-        </div>
+        <a class="btn btn-primary click" id="all" onclick="filterObjects('all')" value="allbutton" href="#" role="button" style="text-align: center">All</a>
+        <a class="btn btn-primary click" id="glutenbutton" onclick="filterObjects('Gluten')" value="glutenbutton" href="#" role="button" style="text-align: center">Gluten</a>
+        <a class="btn btn-primary click2" id="dairybutton" onclick="filterObjects('Dairy')" value="dairybutton" href="#" role="button" style="text-align: center">Dairy</a>
+        <a class="btn btn-primary click3" id="peanutbutton" onclick="filterObjects('Peanut')"  value="peanutbutton" href="#" role="button" style="text-align: center">Peanut</a>
+
     </div>
 </div>
-    <div class="container mt-4">
-        <p class="alert alert-success mt-4"></p>
-<table id="dataTable" class="table" onload="findAllergy"()>
-    %s
-</table>
+<div class="container mt-4">
+    <p class="alert alert-success mt-4"></p>
+    <table id="dataTable">
+        %s
+    </table>
 
 </div>
 
 <script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
     }
-  }
-}
 </script>
-<script></script>
-<script src="js/filter.js"></script>
+<script src="webscrapingDatabase/database/filter.js"></script>
 </body>
 </html>
 '''%(c)
 
-filename = 'Pfieffer.html'
+filename = '../../Pfieffer.html'
 
 
 def main(contents, filename):
